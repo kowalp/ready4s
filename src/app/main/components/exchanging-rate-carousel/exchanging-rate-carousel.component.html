@@ -1,0 +1,18 @@
+<section class="container">
+    <div class="carousel">
+      <ng-container *ngFor="let item of carouselTileItems$ | async; let idx = index">
+        <div class="slide" [class.visible]="currentSlide === idx" [style.background]="'url('+item.img+')'">
+          <div class="text">
+            <h1>Exchange rate for </h1>
+            <p>{{data[idx]?.base}} to {{data[idx]?.symbol}} is {{data[idx]?.value}}</p>
+          </div>
+        </div>
+      </ng-container>
+      <div class="controls">
+        <div class="arrow-left" (click)="moveToLeft()">
+        </div>
+        <div class="arrow-right" (click)="moveToRight()">
+        </div>
+      </div>
+    </div>
+</section>
